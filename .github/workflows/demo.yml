@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v3
         if: success() || failure()
       - run: |
-          mkdir -p Logs
+          mkdir -p Logs/Screenshots
           pytest --capture=sys -v --html=Logs/test_report.html --self-contained-html
 
       - name: Set output
@@ -25,7 +25,7 @@ jobs:
         id: results
         run: |
           ls Logs
-          echo "artifactPath=Logs/**" >> $GITHUB_OUTPUT
+          echo "artifactPath=Logs/" >> $GITHUB_OUTPUT
 
       - uses: actions/upload-artifact@v3
         if: success() || failure()
