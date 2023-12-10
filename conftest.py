@@ -31,8 +31,8 @@ def pytest_runtest_makereport(item):
             time.sleep(1)
             driver.save_screenshot(screenshotPath)
             print("save screen: " + screenshotPath)
-
-            extra.append(pytest_html.extras.image(screenshotPath))
+            screenshot = driver.get_screenshot_as_base64()
+            extra.append(pytest_html.extras.image(screenshot, ''))
             extra.append(pytest_html.extras.url(driver.current_url))
 
         report.extra = extra
