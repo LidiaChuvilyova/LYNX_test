@@ -1,5 +1,6 @@
 import os
 from datetime import datetime
+import time
 
 import pytest
 from selenium import webdriver
@@ -23,7 +24,11 @@ def pytest_runtest_makereport(item):
         driver = feature_request.getfixturevalue(frBrowser)
 
         if report.failed:
-            screenshotPath = os.path.dirname(__file__) + "\\Screenshots\\scr" + timestamp + '.png'
+            screenshotDir = os.path.dirname(__file__) + "\\Logs\\Screenshots"
+            if not os.path.exists(screenshotDir):
+                os.makedirs(screenshotDir)
+            screenshotPath = screenshotDir + "\\src" + timestamp + '.png'
+            time.sleep(1)
             driver.save_screenshot(screenshotPath)
             print("save screen: " + screenshotPath)
 
@@ -42,8 +47,8 @@ def browser(request):
     print("\nstart browser for test..")
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless")
-    browser = webdriver.Chrome(options = chrome_options)
-    browser.maximize_window()
+    chrome_options.add_argument(f"--window-size=1920,1080")
+    browser = webdriver.Chrome(options=chrome_options)
     yield browser
     print("\nquit browser..")
     browser.quit()
