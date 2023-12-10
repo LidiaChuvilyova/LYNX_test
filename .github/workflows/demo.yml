@@ -18,13 +18,12 @@ jobs:
         if: success() || failure()
       - run: |
           mkdir -p Logs/Screenshots
-          pytest --capture=sys -v --html=Logs/test_report.html --self-contained-html
+          pytest --capture=sys -v --html=Logs/test_report.html
 
       - name: Set output
         if: success() || failure()
         id: results
         run: |
-          ls Logs
           echo "artifactPath=Logs/" >> $GITHUB_OUTPUT
 
       - uses: actions/upload-artifact@v3
