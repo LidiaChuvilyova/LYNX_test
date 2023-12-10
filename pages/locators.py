@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class PersonalInfoPageLocators:
-    ACCEPT_ALL_COOKIES_BUTTON = (By.CSS_SELECTOR, "button#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll")
+    ACCEPT_ALL_COOKIES_BUTTON = (By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll")
     BUTTON_GENDER_MALE = (By.CSS_SELECTOR, "button[uib-btn-radio=\"'male'\"]")
     BUTTON_GENDER_FEMALE = (By.CSS_SELECTOR, "button[uib-btn-radio=\"'female'\"]")
     INPUT_FIRSTNAME = (By.ID, "firstname")
