@@ -42,7 +42,7 @@ def browser(request):
     print("\nstart browser for test..")
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless")
-    browser = webdriver.Chrome()
+    browser = webdriver.Chrome(options = chrome_options)
     browser.maximize_window()
     yield browser
     print("\nquit browser..")
