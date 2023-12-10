@@ -33,7 +33,7 @@ def test_dof_go_to_second_page_success(browser):
     page.select_marriage_single()
     page.set_security_answer_1("TestAnswer1")
     page.set_security_answer_2("TestAnswer2")
-    page.set_security_answer_3("TestAnswer3")
+#    page.set_security_answer_3("TestAnswer3")
 
     page.click_next()
     secondPageURL = 'https://www.lynxbroker.de/wertpapierdepot/depoteroeffnung/antrag/wizard/personal/2'
