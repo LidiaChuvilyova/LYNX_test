@@ -40,6 +40,8 @@ def browser(request):
     # then add chromedriver to path
 
     print("\nstart browser for test..")
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--headless")
     browser = webdriver.Chrome()
     browser.maximize_window()
     yield browser
