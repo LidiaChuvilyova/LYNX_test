@@ -1,0 +1,4 @@
+chromedriver-autoinstaller
+pytest
+pytest-html
+selenium
