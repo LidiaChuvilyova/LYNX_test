@@ -23,7 +23,9 @@ jobs:
       - name: Set output
         if: success() || failure()
         id: results
-        run: echo "artifactPath=Logs/" >> $GITHUB_OUTPUT
+        run: |
+          ls Logs
+          echo "artifactPath=Logs/**" >> $GITHUB_OUTPUT
 
       - uses: actions/upload-artifact@v3
         if: success() || failure()
