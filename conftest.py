@@ -24,13 +24,7 @@ def pytest_runtest_makereport(item):
         driver = feature_request.getfixturevalue(frBrowser)
 
         if report.failed:
-            screenshotDir = os.path.dirname(__file__) + "\\Logs"
-            if not os.path.exists(screenshotDir):
-                os.makedirs(screenshotDir)
-            screenshotPath = screenshotDir + "\\src" + timestamp + '.png'
             time.sleep(1)
-            driver.save_screenshot(screenshotPath)
-            print("save screen: " + screenshotPath)
             screenshot = driver.get_screenshot_as_base64()
             extra.append(pytest_html.extras.image(screenshot, ''))
             extra.append(pytest_html.extras.url(driver.current_url))
